@@ -1,5 +1,5 @@
 class Condition < ActiveRecord::Base
-  has_many :trips, primary_key: :date, foreign_key: :start_station_id
+  has_many :trips, primary_key: :date, foreign_key: :start_date
 
   validates_presence_of(
     :date,
