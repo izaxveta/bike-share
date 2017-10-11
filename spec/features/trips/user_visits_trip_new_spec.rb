@@ -70,7 +70,7 @@ feature 'When a user visits trip new page' do
     end
 
     it 'then the user is redirected to show page with success message' do
-      has_current_path?(/\/trips\/[1-9]\d*/, only_path: true)
+      has_current_path?(/\/trips\/\d*/, only_path: true)
       expect(page).to have_content(/saved/i)
     end
   end

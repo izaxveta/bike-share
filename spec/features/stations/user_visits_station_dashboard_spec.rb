@@ -1,6 +1,5 @@
 require './spec/spec_helper'
 
-
 feature 'When a user visits the Station Dashboard' do
 
   background { visit '/station-dashboard' }

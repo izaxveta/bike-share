@@ -140,7 +140,7 @@ class BikeShareApp < Sinatra::Base
     sub_erb :show
   end
 
-  get '/weather-dashboard' do  #this has to be "weather-dashboard"
+  get '/weather-dashboard' do
     @model = Condition
     @records = Condition.all
     sub_erb :dashboard

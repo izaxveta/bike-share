@@ -3,13 +3,13 @@ require './spec/spec_helper'
 feature 'When a user visits station edit page' do
   context 'for a station that exists'
     background do
-      Station.create! id: 3,
-                      city: 'San Jose',
-                      name: 'San Jose Civic Center',
-                      dock_count: '15',
-                      lat: '37.330698',
-                      long: '-121.888979',
-                      installation_date: '8/5/2013'
+      Station.create! id: "3",
+                      city: "San Jose",
+                      name: "San Jose Civic Center",
+                      dock_count: "15",
+                      lat: "37.330698",
+                      long: "-121.888979",
+                      installation_date: "8/5/2013"
       visit '/stations/3/edit'
     end
 
