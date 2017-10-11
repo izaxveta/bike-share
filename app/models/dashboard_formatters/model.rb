@@ -12,17 +12,4 @@ module ModelDashboardFormatter
     order_by_child_count(child_name).count.values
   end
 
-  def by_chunk(field, step)
-    start_group = minimum(field)
-    last = maximum(field)
-    final = {}
-    until start_group > last
-      end_group = start_group + step
-      range = start_group...end_group
-      final[range] = yield where(field => range)
-      start_group = end_group
-    end
-    final
-  end
-
 end

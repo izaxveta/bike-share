@@ -1,13 +1,13 @@
 require_relative 'model'
 
-class TripDashboardFormatter
+module TripDashboardFormatter
 
   def dashboard_data
     dates_by_trip_count = ordered_groups_by_count(:start_date).to_a
     bikes_by_trip_count = ordered_groups_by_count(:bike_id).to_a
 
     {
-      average_duration: average :duration,
+      average_duration: average(:duration),
       longest_trip: where(maximum :duration),
       shortest_trip: where(minimum :duration),
       most_common_starting_station: most_common_starting_station,

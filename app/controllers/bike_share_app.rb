@@ -43,7 +43,7 @@ class BikeShareApp < Sinatra::Base
 
   get '/station-dashboard' do
     @model = Station
-    @records = Station.all
+    @data = Station.dashboard_data
     sub_erb :dashboard
   end
 
@@ -76,7 +76,7 @@ class BikeShareApp < Sinatra::Base
 
   get '/trip-dashboard' do
     @model = Trip
-    @records = Trip.all
+    @data = Trip.dashboard_data
     sub_erb :dashboard
   end
 
@@ -142,7 +142,7 @@ class BikeShareApp < Sinatra::Base
 
   get '/weather-dashboard' do
     @model = Condition
-    @records = Condition.all
+    @data = Condition.dashboard_data
     sub_erb :dashboard
   end
 

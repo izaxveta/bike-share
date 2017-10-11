@@ -1,7 +1,7 @@
-require_relative 'bike_share_queries'
+require_relative 'dashboard_formatters/trip'
 
 class Trip < ActiveRecord::Base
-    extend BikeShareQueries
+    extend TripDashboardFormatter
 
     belongs_to :start_station, class_name: "Station"
     belongs_to :end_station,   class_name: "Station"
