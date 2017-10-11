@@ -1,11 +1,12 @@
-body {
-  font-family: 'Lekton', sans-serif;
-  font-size: 20;
-}
-
 body a {
   text-decoration: none;
   color: black;
+}
+
+body {
+  font-family: 'Lekton', sans-serif;
+  font-size: 20;
+  margin: 0;
 }
 
 h1 {
@@ -14,7 +15,7 @@ h1 {
 	font-style: normal;
 	font-variant: normal;
 	font-weight: bold;
-	line-height: 39.2px;
+	line-height: 50px;
 }
 
 header {
@@ -48,17 +49,3 @@ footer p {
   color:  white;
   font-size: 10pt;
 }
-/* .trip {
-  text-decoration: none;
-  border: 1px solid black;
-  padding: 10px;
-  background-color: skyblue;
-}
-
-.trip p {
-  text-decoration: none;
-}
-
-.trip:hover {
-  background-color: hotpink;
-} */
