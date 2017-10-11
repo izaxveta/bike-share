@@ -28,7 +28,7 @@ dummy_data = {
       min_temperature_f: 71.0,
       mean_humidity: 75.0,
       mean_visibility_miles: 10.0,
-      mean_wind_speed: 10.0,
+      mean_wind_speed_mph: 10.0,
       precipitation_inches: 0
     }
   }
