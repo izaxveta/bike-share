@@ -1,4 +1,4 @@
-id,duration,start_date,start_station_name,start_station_id,end_date,end_station_name,end_station_id,bike_id,subscription_type,zip_code
+id,duration,start_date,start_station_id,end_date,end_station_id,bike_id,subscription_type,zip_code
 6342,556,8/30/2013 18:49,57,8/30/2013 18:58,50,342,Subscriber,94123
 7046,3743,8/31/2013 14:46,35,8/31/2013 15:48,35,100,Customer,19803
 8771,1492,9/2/2013 12:21,50,9/2/2013 12:46,60,432,Customer,90066
