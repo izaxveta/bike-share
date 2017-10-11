@@ -4,57 +4,46 @@
 }
 
 .slider {
-    max-width: 700px;
-    height: 600px;
-    /* margin: 20px auto; */
-    position: center;
-  }
+  max-width: 700px;
+  height: 600px;
+  /* margin: 20px auto; */
+  position: center;
+}
 
-  .slide1,.slide2,.slide3,.slide4,.slide5 {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .slide1 {
-    background: url('../images/1.jpg')no-repeat center;
-    /* Photo by Linda Xu on Unsplash */
-        background-size: cover;
-      animation:fade 30s infinite;
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  animation:fade 30s infinite;
   -webkit-animation:fade 30s infinite;
-  
-  } 
-  .slide2 {
-    background: url('../images/2.jpg')no-repeat center;
-    /* Photo by Louis Lo on Unsplash */
-        background-size: cover;
-      animation:fade2 30s infinite;
-  -webkit-animation:fade2 30s infinite;
-  }
-  .slide3 {
-      background: url('../images/3.jpg')no-repeat center;
-      /* Photo by Chris Barbalis on Unsplash */
-        background-size: cover;
-      animation:fade3 30s infinite;
-  -webkit-animation:fade3 30s infinite;
-  }
-  @keyframes fade
-  {
-    0%   {opacity:1}
-    33.333% { opacity: 0}
-    66.666% { opacity: 0}
-    100% { opacity: 1}
-  }
-  @keyframes fade2
-  {
-    0%   {opacity:0}
-    33.333% { opacity: 1}
-    66.666% { opacity: 0 }
-    100% { opacity: 0}
-  }
-  @keyframes fade3
-  {
-    0%   {opacity:0}
-    33.333% { opacity: 0}
-    66.666% { opacity: 1}
-    100% { opacity: 0}
-  }
+}
+
+.slide1 {
+  background: url('../images/1.jpg')no-repeat center; /* Photo by Linda Xu on Unsplash */
+}
+.slide2 {
+  background: url('../images/2.jpg')no-repeat center; /* Photo by Louis Lo on Unsplash */
+}
+.slide3 {
+  background: url('../images/3.jpg')no-repeat center; /* Photo by Chris Barbalis on Unsplash */
+}
+
+@keyframes fade {
+  0%      { opacity: 1 }
+  33.333% { opacity: 0 }
+  66.666% { opacity: 0 }
+  100%    { opacity: 1 }
+}
+@keyframes fade2 {
+  0%      { opacity: 0 }
+  33.333% { opacity: 1 }
+  66.666% { opacity: 0 }
+  100%    { opacity: 0 }
+}
+@keyframes fade3 {
+  0%      { opacity: 0 }
+  33.333% { opacity: 0 }
+  66.666% { opacity: 1 }
+  100%    { opacity: 0 }
+}
