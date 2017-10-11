@@ -13,7 +13,7 @@ feature 'When a user visits the Weather Dashboard' do
     end
     
     it 'they see trip breakout for days with precipitation in half-inch increments' do
-        expect(page).to have_content(/per 1\/\2in of precipitation/i)
+        expect(page).to have_content(/2 in of precipitation/i)
     end
     
     it 'they see trip breakout for days with mean visibility in four mile increments' do

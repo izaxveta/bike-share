@@ -39,7 +39,7 @@ feature 'When a user visits trip edit page' do
       expect(page).to have_field('trip[start_station_id]')
     end
 
-    it 'they see an end date field' do
+    it 'they see an end date field' do 
       expect(page).to have_content(/end date/i)
       expect(page).to have_field('trip[end_date]')
     end
