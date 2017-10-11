@@ -11,6 +11,5 @@ class Condition < ActiveRecord::Base
     :mean_wind_speed_mph,
     :precipitation_inches
   )
-
-
+  
 end

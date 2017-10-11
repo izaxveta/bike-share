@@ -80,3 +80,17 @@ class Station < ActiveRecord::Base
   end
 
 end
+
+
+
+
+# id,name,lat,long,dock_count,city,installation_date
+# 1,station 1,1.1,1.1,1,city 1,1/1/1111
+# 2,station 2,2.2,2.2,2,city 2,2/2/2222
+# 3,station 3,3.3,3.3,3,city 3,3/3/3333
+# 4,station 4,4.4,4.4,4,city 4,4/4/4444
+# 5,station 5,5.5,5.5,5,city 5,5/5/5555
+# 6,station 6,6.6,6.6,6,city 6,6/6/6666
+# 7,station 7,7.7,7.7,7,city 7,7/7/7777
+# 8,station 8,8.8,8.8,8,city 8,8/8/8888
+# 9,station 9,9.9,9.9,9,city 9,9/9/9999
