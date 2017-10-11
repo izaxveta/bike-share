@@ -1,3 +1,5 @@
+require_relative 'bike_share_queries'
+
 class Station < ActiveRecord::Base
   extend BikeShareQueries
 

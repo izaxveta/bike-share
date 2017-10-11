@@ -3,7 +3,7 @@ require './spec/spec_helper'
 feature 'When a user visits condition edit page' do
   context 'for a condition that exists' do
     background do
-      Condition.create! id: "1"
+      Condition.create! id: "1",
                         date: "8/29/2013",
                         max_temperature_f: "74.0",
                         mean_temperature_f: "68.0",
@@ -95,18 +95,18 @@ feature 'When a user visits condition edit page' do
         expect(page).to have_content(/error/i)
       end
     end
+    
+  end
 
   context 'for a condition that does not exist' do
-    it 'then the user is redirected to 404 error message'
-      visit ("/conditions/0")
+    it 'then the user is redirected to 404 error message' do
+      visit "/conditions/0"
       expect(page).to have_content(/not found/i)
     end
   end
 
   context 'when user clicks on delete button' do
-    background do
-      click_button 'delete'
-    end
+    background { click_button 'delete' }
 
     it 'then user is redirected to index page' do
       has_current_path?("/conditions", only_path: true)
