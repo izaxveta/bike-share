@@ -55,7 +55,7 @@ feature 'when a user visits trip show page' do
     context 'when user clicks on delete button' do
       background { click_button 'delete' }
 
-      it 'then user is redirected to trip index page' do
+      it 'they are redirected to trip index page' do
         has_current_path?('/trips', only_path: true)
       end
 
