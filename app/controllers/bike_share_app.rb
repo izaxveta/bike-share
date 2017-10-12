@@ -181,6 +181,12 @@ class BikeShareApp < Sinatra::Base
     redirect to '/conditions'
   end
 
+  get '/api/v1/stations/:id' do |id|
+    content_type :json
+    return '{}' unless Station.exists?(id)
+    Station.find(id).to_json
+  end
+
   not_found do
     erb :not_found
   end
