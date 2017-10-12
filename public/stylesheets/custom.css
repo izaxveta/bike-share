@@ -48,6 +48,11 @@ footer p {
   color:  white;
   font-size: 10pt;
 }
+
+footer a {
+  color:  white;
+  font-size: 10pt;
+}
 /* .trip {
   text-decoration: none;
   border: 1px solid black;
