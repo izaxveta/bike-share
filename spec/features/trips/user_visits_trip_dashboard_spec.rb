@@ -16,35 +16,36 @@ feature 'When a user visits trip dashboard page' do
   end
 
   it 'they see the station with most trips as the starting place' do
-    expect(page).to have_content(/station most rides starting/i)
+    expect(page).to have_content(/starting station with most rides/i)
   end
 
   it 'they see the station with the least trips as the the ending place' do
-    expect(page).to have_content(/station most rides ending/i)
+    expect(page).to have_content(/ending station with most rides/i)
   end
 
   it 'they see the a month by month breakout of trips with subtotals for each year' do
-    expect(page).to have_content(/month subtotal trips/i)
+    expect(page).to have_content(/subscriptions/i)
+    expect(page).to have_content(/subscription type/i)
   end
 
   it 'they see the most ridden bike along with total trip count for that bike' do
-    expect(page).to have_content(/bike most ridden total rides/i)
+    expect(page).to have_content(/most used (\d+ rides): \#\d+/i)
   end
 
   it 'they see the least ridden bike along with total trip count for that bike' do
-    expect(page).to have_content(/bike least ridden total rides/i)
+    expect(page).to have_content(/least used (\d+ rides): \#\d+/i)
   end
 
   it 'they see a subscription type breakout with both count and percentage' do
-    expect(page).to have_content(/subscription count percentage subscription customer monthly/i)
+    expect(page).to have_content(/totals per year and month/i)
   end
 
   it 'they see the day with most trips along with count' do
-    expect(page).to have_content(/most count trips day/i)
+    expect(page).to have_content(/most active/i)
   end
 
   it 'they see the day with least trips along with count' do
-    expect(page).to have_content(/least count trips day/i)
+    expect(page).to have_content(/least active/i)
   end
 
 end
