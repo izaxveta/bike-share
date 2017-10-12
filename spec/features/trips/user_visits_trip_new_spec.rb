@@ -1,14 +1,5 @@
 require './spec/spec_helper'
 
-module Kernel
-  def print
-    require "pry"; binding.pry
-  end
-  def p
-    require "pry"; binding.pry
-  end
-end
-
 feature 'When a user visits trip new page' do
 
   background{ visit '/trips/new' }
@@ -57,20 +48,21 @@ feature 'When a user visits trip new page' do
   end
 
   it 'they see a submit button' do
+    save_and_open_page
     expect(page).to have_button 'submit'
   end
 
   context 'when a user inputs valid data' do
     background do
-      fill_in 'trip[start_station_id]',   with: '42'
-      fill_in 'trip[end_station_id]',     with: '43'
+      select 'San Jose Diridon Caltrain Station', from: 'trip[start_station_id]'
+      select from: 'trip[end_station_id]'
       fill_in 'trip[duration]',           with: 10
       fill_in 'trip[start_date]',         with: '01/01/2001'
       fill_in 'trip[end_date]',           with: '02/01/2001'
       fill_in 'trip[bike_id]',            with: 1001
       fill_in 'trip[subscription_type]',  with: 'Subscriber'
       fill_in 'trip[zip_code]',           with: 80303
-      click_button 'Submit'
+      click_button 'submit'
     end
     it 'then the user is redirected to show page' do
       has_current_path?(/\/trips\/\d*/, only_path: true)
@@ -79,15 +71,15 @@ feature 'When a user visits trip new page' do
 
   context 'when user inputs invalid data' do
     background do
-      fill_in 'trip[start_station_id]',   with: '42'
-      fill_in 'trip[end_station_id]',     with: '43'
+      select 'San Jose Diridon Caltrain Station', from: 'trip[start_station_id]'
+      select 'Harry Bridges Plaza (Ferry Building)', from: 'trip[end_station_id]'
       fill_in 'trip[duration]',           with: 'long'
       fill_in 'trip[start_date]',         with: '01/01/2001'
       fill_in 'trip[end_date]',           with: '02/01/2001'
       fill_in 'trip[bike_id]',            with: 1001
       fill_in 'trip[subscription_type]',  with: 'Subscriber'
       fill_in 'trip[zip_code]',           with: 80303
-      click_button 'Submit'
+      click_button 'submit'
     end
     it 'then the user is stays on page' do
       has_current_path?('/trips/new', only_path: true)

@@ -9,7 +9,7 @@
 <label>End Station
   <select name="trip[end_station_id]">
     <% @stations.each do |station| %>
-      <option value="<%=station.id%>" label="<%=station.name%>"/>
+      <option value="<%=station.id%>" name="<%=station.id%>" label="<%=station.name%>"/>
     <% end %>
   </select>
 </label><br/>
