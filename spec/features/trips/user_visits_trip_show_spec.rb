@@ -17,7 +17,16 @@ feature 'when a user visits trip show page' do
     end
 
     it 'they see the end station' do
+<<<<<<< HEAD
       expect(page).to have_content('Harry Bridges Plaza (Ferry Building)')
+=======
+      expect(page).to have_content(/end station/i)
+      expect(page).to have_content('7')
+    end
+
+    it 'they see the start date' do
+      expect(page).to have_content('2013-08-31')
+>>>>>>> master
     end
 
     it 'they see the date' do
@@ -25,23 +34,40 @@ feature 'when a user visits trip show page' do
     end
 
     it 'they see the duration' do
+<<<<<<< HEAD
       expect(page).to have_content(/duration/i)
       expect(page).to have_content('556 minutes')
+=======
+      expect(page).to have_content('3743')
+>>>>>>> master
     end
 
     it 'they see the bike id' do
       expect(page).to have_content(/bike id/i)
+<<<<<<< HEAD
       expect(page).to have_content('342')
     end
 
     it 'they see the subscription type' do
       expect(page).to have_content(/subscription/i)
       expect(page).to have_content('Subscriber')
+=======
+      expect(page).to have_content('100')
+    end
+
+    it 'they see the subscription type' do
+      expect(page).to have_content(/subscription type/i)
+      expect(page).to have_content('Customer')
+>>>>>>> master
     end
 
     it 'they see the zipcode' do
       expect(page).to have_content(/zip code/i)
+<<<<<<< HEAD
       expect(page).to have_content('94123')
+=======
+      expect(page).to have_content('19803')
+>>>>>>> master
     end
 
     it 'they see a delete button' do

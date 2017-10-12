@@ -1,14 +1,35 @@
 <h2>Weather Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
-<p>Per 10 degree interval...</p>
+<p>Per 10 degree interval</p>
+    <ul>
+        <% @data[:temperature_breakout].each_pair do |range, value|%>
+            <li><%=range%> degrees Farenheit: <%value.each_pair do |category, trip_count|%>
+                <%=category%>: <%=trip_count%>, 
+            <%end%></li>
+        <%end%>
+    </ul>
 <p>Per 1/2in of Precipitation</p>
+    <ul>
+        <% @data[:precipitation_breakout].each_pair do |range, value|%>
+            <li><%=range%>: <%value.each_pair do |category, trip_count|%>
+                <%=category%>: <%=trip_count%>, 
+            <%end%></li>
+        <%end%>
+    </ul>
 <p>Per 4 mile increment</p>
+    <ul>
+        <% @data[:windspeed_breakout].each_pair do |range, value|%>
+            <li><%=range%>: <%value.each_pair do |category, trip_count|%>
+                <%=category%>: <%=trip_count%>, 
+            <%end%></li>
+        <%end%>
+    </ul>
 <p>Per Visibility of 4 miles</p>
-
-<p>TEST!!!!!: <%= @record.mean_wind_speed_mph %></p>
-
-<!-- * Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees)
-* Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments.
-* Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments.
-* Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean visibility in miles in four mile increments.-->
+    <ul>
+        <% @data[:visibility_breakout].each_pair do |range, value|%>
+            <li><%=range%>: <%value.each_pair do |category, trip_count|%>
+                <%=category%>: <%=trip_count%>, 
+            <%end%></li>
+        <%end%>
+    </ul>
