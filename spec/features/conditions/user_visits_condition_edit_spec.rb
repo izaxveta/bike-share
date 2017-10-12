@@ -114,5 +114,3 @@ feature 'When a user visits condition edit page' do
     end
   end
 end
-
-end
