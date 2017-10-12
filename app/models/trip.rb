@@ -45,4 +45,5 @@ class Trip < ActiveRecord::Base
   def end_station_name
     end_station.name
   end
+  
 end

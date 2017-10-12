@@ -24,10 +24,6 @@ module ConditionDashboardFormatter
     group(:id).joins(:trip).order("COUNT(trips.id) DESC").count.values
   end
 
-  def order_by_trip_count
-
-  end
-
   def by_chunk(field, step)
     start_group = minimum(field)
     last = maximum(field)

@@ -88,15 +88,19 @@ class BikeShareApp < Sinatra::Base
 
   get '/trips/new' do
     @model = Trip
-    @stations = Station.all
+    @stations = Trip.all
     sub_erb :new
   end
 
   get '/trips/:id' do |id|
-    @model = Trip
-    @id = id
-    @record = Trip.find(id)
-    sub_erb :show
+    if !Trip.exists?(id)
+      erb :not_found
+    else
+      @model = Trip
+      @id = id
+      @record = Trip.find(id)
+      sub_erb :show
+    end
   end
 
   get '/trips/:id/edit' do |id|

@@ -1,40 +1,45 @@
 <h2>Trip Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
-<p>=======</p>
+
+<h3>Stations</h3>
 <p>Starting station with most rides: <%= @data[:most_common_starting_station] %></p>
 <p>Ending station with most rides: <%= @data[:most_common_ending_station] %></p>
-<p>=======</p>
-<p>Most ridden bike (<%= @data[:most_rides_for_bike] %> rides): #<%= @data[:most_rides_bike] %></p>
-<p>Least ridden bike (<%= @data[:least_rides_for_bike] %> rides): #<%= @data[:least_rides_bike] %></p>
-<p>=======</p>
-<p>Most Active Day (<%=@data[:most_rides_for_date] %> trips): <%= @data[:most_rides_date] %> </p>
-<p>Least Active Day (<%=@data[:least_rides_for_date] %> trips): <%= @data[:least_rides_date] %> </p>
-<p>=======</p>
-<p>Subscriptions: <%= @data[:subscription_count] %></p>
+
+<h3>Bikes</h3>
+<p>Most used (<%= @data[:most_rides_for_bike] %> rides): #<%= @data[:most_rides_bike] %></p>
+<p>Least used (<%= @data[:least_rides_for_bike] %> rides): #<%= @data[:least_rides_bike] %></p>
+
+<h3>Dates</h3>
+<p>Most active(<%=@data[:most_rides_for_date] %> trips): <%= @data[:most_rides_date] %> </p>
+<p>Least active(<%=@data[:least_rides_for_date] %> trips): <%= @data[:least_rides_date] %> </p>
+
+<h3>Subscriptions</h3>
+<p><%= @data[:subscription_count] %> total</p>
 <ul>
   <%@data[:subscription_type_breakout].each do |type, data| %>
-  <p>Subscription Type: <%= type %></p>
-      <li>Number: <%= data[:subtotal] %>
-      <li>Percentage: <%=data[:percentage] %>
+    <li>
+      <h4>Subscription Type: <%= type %></h4>
+      <p>Number: <%= data[:subtotal] %>
+      <p>Percentage: <%=data[:percentage] %>
+    </li>
   <%end%>
 </ul>
-<p>=======</p>
-<p>Bike ride totals per year:</p>
-<ul>
-<%@data[:year_month_breakout].each do |year, totals| %>
-    <li>
-        <h3><%=year%></h3>
-        <ul>
-            <% totals.each do |month, total| %>
-                <li><%=month%>: <%=total%> trips</li>
-            <%end%>
-        </ul>
-    </li>
-<%end%>
-</ul>
-<p>=======</p>
 <br/>
-<p>Weather on day with highest trips:</p>
+<h3>Bike ride totals per year</h3>
+<ul>
+  <%@data[:year_month_breakout].each do |year, totals| %>
+      <li>
+          <h4><%=year%></h4>
+          <ul>
+              <% totals.each do |month, total| %>
+                  <li><%=month%>: <%=total%> trips</li>
+              <%end%>
+          </ul>
+      </li>
+  <%end%>
+</ul>
+
+<h3>Weather on the date of most trips:</h3>
 <p>High Temp(F): <%= @data[:most_rides_weather]["max_temperature_f"] %> degrees</p>
 <p>Low Temp(F): <%= @data[:most_rides_weather]["min_temperature_f"] %> degrees</p>
 <p>Average Temp(F): <%= @data[:most_rides_weather]["mean_temperature_f"] %> degrees</p>
@@ -44,7 +49,7 @@
 <p>Precipitation: <%= @data[:most_rides_weather]["precipitation_inches"] %> inches</p>
 <br/>
 
-<p>Weather on day with fewest trips:</p>
+<h3>Weather on the date of least of trips</h3>
 <p>High Temp(F): <%= @data[:least_rides_weather]["max_temperature_f"] %> degrees</p>
 <p>Low Temp(F): <%= @data[:least_rides_weather]["min_temperature_f"] %> degrees</p>
 <p>Average Temp(F): <%= @data[:least_rides_weather]["mean_temperature_f"] %> degrees</p>
@@ -52,4 +57,3 @@
 <p>Average Visibility: <%= @data[:least_rides_weather]["mean_visibility_miles"] %> miles</p>
 <p>Average Wind Speed: <%= @data[:least_rides_weather]["mean_wind_speed_mph"] %> mph</p>
 <p>Precipitation: <%= @data[:least_rides_weather]["precipitation_inches"] %> inches</p>
-<br/>
