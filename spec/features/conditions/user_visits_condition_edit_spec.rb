@@ -1,17 +1,17 @@
 require './spec/spec_helper'
 
 feature 'When a user visits condition edit page' do
+
+  context 'for a condition that does not exist' do
+    it 'then they see a 404 error message' do
+      visit "/conditions/0"
+      expect(page).to have_content(/not found/i)
+    end
+  end
+
   context 'for a condition that exists' do
+
     background do
-      Condition.create! id: "1",
-                        date: "8/29/2013",
-                        max_temperature_f: "74.0",
-                        mean_temperature_f: "68.0",
-                        min_temperature_f: "61.0",
-                        mean_humidity: "75.0",
-                        mean_visibility_miles: "10.0",
-                        mean_wind_speed: "11.0",
-                        precipitation_inches: "0"
       visit '/conditions/1/edit'
     end
 
