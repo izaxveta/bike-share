@@ -10,18 +10,20 @@ feature 'when a user visits trip show page' do
   end
 
   context 'for a trip that exists' do
-    background { visit '/trips/7046' }
+    background { visit '/trips/4576' }
 
-    it 'has status code 200' do
-      expect(page.status_code).to eq(200)
-    end
+    # it 'has status code 200' do
+    #   expect(page.status_code).to eq(200)
+    # end
 
     it 'they see the start station' do
-      expect(page).to have_content('University and Emerson')
+      # require "pry"; binding.pry
+      expect(page).to have_content(/start station/i)
+      expect(page).to have_content('8')
     end
 
     it 'they see the end station' do
-      skip
+      expect(page).to have_content(/end station/i)
       expect(page).to have_content('7')
     end
 
@@ -30,7 +32,7 @@ feature 'when a user visits trip show page' do
     end
 
     it 'they see the end date' do
-      skip
+      expect(page).to have_content(/end date/i)
       expect(page).to have_content('2001-02-01')
     end
 
@@ -61,13 +63,8 @@ feature 'when a user visits trip show page' do
       expect(page).to have_button(/edit/i)
     end
 
-    #these are everywhere... test each page seperately or what?
-    it 'they see a link to the index' do
-      expect(page).to have_link(//, href: '/trips')
-    end
-
     context 'when user clicks on delete button' do
-      background { click_button 'delete' } 
+      background { click_button 'delete' }
 
       it 'then user is redirected to trip index page' do
         has_current_path?('/trips', only_path: true)

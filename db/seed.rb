@@ -22,7 +22,9 @@ class Seed
     end
 
     def seed_trips
+
       CSV.foreach(csv_file('trip'), options) do |row|
+      # require "pry";binding.pry
         return if Trip.exists?(row[:id])
         return unless Station.exists?(row[:start_station_id])
         return unless Station.exists?(row[:end_station_id])
@@ -30,7 +32,7 @@ class Seed
         convert_date(row, :end_date)
         row.delete(:start_station_name)
         row.delete(:end_station_name)
-        Trip.create(row.to_hash)
+        Trip.create!(row.to_hash)
       end
     end
 

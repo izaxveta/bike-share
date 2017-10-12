@@ -1,11 +1,9 @@
 <h2>Station Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
-<p>Total docks: <%= @records.count %></p>
-<p>Average bikes available per station: <%= @records.average_dock_count %></p>
-<p>Most bikes available at a station: <%= @records.maximum_dock_count %></p>
-<p>Stations with most bikes: <%= @records.with_most_bikes.names %></p>
-<p>Fewest bikes available at a station: <%=@records.minimum_dock_count %></p>
-<p>Stations with least bikes: <%= @records.with_least_bikes.names %></p>
-<p>Newest stations: <%= @records.newest.names %></p>
-<p>Oldest Stations: <%= @records.oldest.names %></p>
+<p>Total stations: <%= @data[:total] %></p>
+<p>Average bikes available per station: <%= @data[:average_docks] %></p>
+<p>Stations with most  bikes (<%= @data[:most_docks] %>): <%= @data[:with_most_docks] %></p>
+<p>Stations with least bikes (<%= @data[:least_docks] %>): <%= @data[:with_least_docks] %></p>
+<p>Newest stations: <%= @data[:newest] %></p>
+<p>Oldest Stations: <%= @data[:oldest] %></p>
