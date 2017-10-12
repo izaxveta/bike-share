@@ -51,6 +51,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/stations/:id/edit' do |id|
+    return not_found unless Station.exists?(id)
     @model = Station
     @id = id
     @record = Station.find(id)
@@ -91,7 +92,7 @@ class BikeShareApp < Sinatra::Base
 
   get '/trips/new' do
     @model = Trip
-    @stations = Trip.all
+    @stations = Station.all
     sub_erb :new
   end
 
@@ -104,6 +105,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips/:id/edit' do |id|
+    return not_found unless Trip.exists?(id)
     @model = Trip
     @id = id
     @record = Trip.find(id)
@@ -152,6 +154,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/conditions/:id/edit' do |id|
+    return not_found unless Condition.exists?(id)
     @model = Condition
     @id = id
     @record = Condition.find(id)

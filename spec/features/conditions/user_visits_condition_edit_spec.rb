@@ -64,7 +64,7 @@ feature 'When a user visits condition edit page' do
         fill_in "condition[min_temperature_f]",     with: "61.0"
         fill_in "condition[mean_humidity]",         with: "75.0"
         fill_in "condition[mean_visibility_miles]", with: "10.0"
-        fill_in "condition[mean_wind_speed_mph]",       with: "11.0"
+        fill_in "condition[mean_wind_speed_mph]",   with: "11.0"
         fill_in "condition[precipitation_inches]",  with: "10"
         click_button "submit"
       end
@@ -82,7 +82,7 @@ feature 'When a user visits condition edit page' do
         fill_in "condition[min_temperature_f]",     with: "61.0"
         fill_in "condition[mean_humidity]",         with: "75.0"
         fill_in "condition[mean_visibility_miles]", with: "10.0"
-        fill_in "condition[mean_wind_speed_mph]",      with: "11.0"
+        fill_in "condition[mean_wind_speed_mph]",   with: "11.0"
         fill_in "condition[precipitation_inches]",  with: "0"
         click_button "submit"
       end
