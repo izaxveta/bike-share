@@ -1,7 +1,7 @@
 require './spec/spec_helper'
 
 
-feature 'Station index page' do
+feature 'When the user visits the Station index page' do
   background do
   #   Station.create! city: 'land of bikes',
   #                   name: 'pile of bikes',
@@ -24,25 +24,17 @@ feature 'Station index page' do
     expect(page.status_code).to eq(200)
   end
 
-
-  it 'displays name' do
-    expect(page).to have_content('pile of bikes')
-
+  it 'they see a city field' do
+    expect(page).to have_content('City:')
   end
 
-  it 'displays city' do
-    expect(page).to have_content(/city/i)
-    expect(page).to have_content('land of bikes')
-  end
-
-  it 'displays dock count' do
-    expect(page).to have_content(/dock count/i)
-    expect(page).to have_content('999999')
+  it 'they see a dock count field' do
+    expect(page).to have_content('Dock Count:')
   end
 
   it 'displays multiple items' do
     stations = all '#stations *'
-    expect(Station.count).to eq 2
+    expect(Station.count).to eq 9
   end
 
 
