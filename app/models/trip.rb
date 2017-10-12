@@ -17,7 +17,7 @@ class Trip < ActiveRecord::Base
 
 
   def display
-    "Trip ##{id} #{route}"
+    "Trip ##{id} #{route} #{timeframe}"
   end
 
   def route

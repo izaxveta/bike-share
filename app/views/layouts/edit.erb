@@ -4,7 +4,7 @@
     <input type="hidden" name="_method" value="PUT" />
     <%= yield %>
     <input type="submit" name="submit"/>
-    <button type="submit" form="delete" name="delete" value="Delete"> Delete </button>
+    <button type="submit" form="delete" name="delete" value="delete">
   </form>
   <form id="delete" action = "<%= destroy(@id) %>" method="post">
     <input type="hidden" name="_method" value="DELETE" />
