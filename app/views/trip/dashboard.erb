@@ -1,6 +1,11 @@
 <h2>Trip Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
+<h3>Duration</h3>
+<p>Average ride duration (minutes): <%= @data[:average_duration] %>></p>
+<p>Longest trip (minutes): <%= @data[:longest_trip] %>></p>
+<p>Shortest trip (minutes): <%= @data[:shortest_trip] %>></p>
+
 <h3>Stations</h3>
 <p>Starting station with most rides: <%= @data[:most_common_starting_station] %></p>
 <p>Ending station with most rides: <%= @data[:most_common_ending_station] %></p>
@@ -25,7 +30,7 @@
   <%end%>
 </ul>
 <br/>
-<h3>Bike ride totals per year</h3>
+<h3>Bike ride totals per year and month</h3>
 <ul>
   <%@data[:year_month_breakout].each do |year, totals| %>
       <li>

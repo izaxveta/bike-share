@@ -48,7 +48,6 @@ feature 'When a user visits trip new page' do
   end
 
   it 'they see a submit button' do
-    save_and_open_page
     expect(page).to have_button 'submit'
   end
 

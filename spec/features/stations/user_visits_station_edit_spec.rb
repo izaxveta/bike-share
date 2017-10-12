@@ -2,11 +2,7 @@ require './spec/spec_helper'
 
 feature 'When a user visits station edit page' do
   context 'for a station that exists'
-    background { '/stations//edit' }
-
-    it 'has status code 200' do
-      expect(page.status_code).to eq(200)
-    end
+    background { '/stations/edit' }
 
     it 'has a form' do
       expect(page).to have_css('form')
