@@ -1,6 +1,7 @@
 body {
   font-family: 'Lekton', sans-serif;
   font-size: 20;
+  margin: 0
 }
 
 body a {
@@ -28,7 +29,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  padding-top: 36px;
+  padding-top: 55px;
 }
 
 nav a:hover {
@@ -48,22 +49,3 @@ footer p {
   color:  white;
   font-size: 10pt;
 }
-
-footer a {
-  color:  white;
-  font-size: 10pt;
-}
-/* .trip {
-  text-decoration: none;
-  border: 1px solid black;
-  padding: 10px;
-  background-color: skyblue;
-}
-
-.trip p {
-  text-decoration: none;
-}
-
-.trip:hover {
-  background-color: hotpink;
-} */
