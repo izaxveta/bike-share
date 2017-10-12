@@ -95,10 +95,12 @@ feature 'When a user visits condition edit page' do
         expect(page).to have_content(/error/i)
       end
     end
+    
+  end
 
   context 'for a condition that does not exist' do
     it 'then the user is redirected to 404 error message' do
-      visit '/conditions/b4'
+      visit "/conditions/0"
       expect(page).to have_content(/not found/i)
     end
   end

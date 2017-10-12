@@ -1,4 +1,8 @@
+require_relative 'bike_share_queries'
+
 class Station < ActiveRecord::Base
+  extend BikeShareQueries
+
   has_many :trips_started, class_name: "Trip", foreign_key: :start_station_id, dependent: :destroy
   has_many :trips_ended, class_name: "Trip", foreign_key: :end_station_id, dependent: :destroy
 
