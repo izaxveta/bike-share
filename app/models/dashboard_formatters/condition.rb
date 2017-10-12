@@ -20,8 +20,8 @@ module ConditionDashboardFormatter
     end
   end
 
-  def trip_counts_descending(child_name)
-    group(:id).joins(:trip).order("COUNT(trips.id) DESC").count.values
+  def trip_counts_descending
+    group(:id).joins(:trips).order("COUNT(trips.id) DESC").count.values
   end
 
   def by_chunk(field, step)
