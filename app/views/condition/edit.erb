@@ -14,24 +14,23 @@
     value="<%= @record.max_temperature_f %>"
   />
 </label>
-
 <br/>
 <label>Min Temperature (farenheit):
   <input
     type="float"
     name="condition[min_temperature_f]"
+    value="<%= @record.mean_temperature_f %>"
+  />
+</label>
+</br>
+<label>Average Temperature (farenheit):
+  <input
+    type="float"
+    name="condition[mean_temperature_f]"
     value="<%= @record.min_temperature_f %>"
   />
 </label>
 
-<br/>
-<label>Mean Temperature (farenheit):
-  <input
-    type="float"
-    name="condition[mean_temperature]"
-    value="<%= @record.mean_temperature_f %>"
-  />
-</label>
 
 <br/>
 <label>Average Humidity:
@@ -52,10 +51,10 @@
 </label>
 
 <br/>
-<label>Average Wind Speed:
+<label>Average Wind Speed (mph):
   <input
     type="float"
-    name="condition[mean_wind_speed]"
+    name="condition[mean_wind_speed_mph]"
     value="<%= @record.mean_wind_speed_mph %>"
   />
 </label>
@@ -68,3 +67,4 @@
     value="<%= @record.precipitation_inches %>"
   />
 </label>
+</br>

@@ -5,7 +5,7 @@ feature 'When a user visits the Station Dashboard' do
   background { visit '/station-dashboard' }
 
   it 'they see the total stations' do
-    expect(page).to have_content('Total docks')
+    expect(page).to have_content('Total stations')
   end
 
   it 'they see the average dock count' do
