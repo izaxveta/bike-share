@@ -2,6 +2,8 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 require_relative '../models/station.rb'
+require_relative '../models/trip.rb'
+require_relative '../models/condition.rb'
 require_relative 'rest_url'
 
 class BikeShareApp < Sinatra::Base
@@ -49,6 +51,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/stations/:id/edit' do |id|
+    return not_found unless Station.exists?(id)
     @model = Station
     @id = id
     @record = Station.find(id)
@@ -89,7 +92,7 @@ class BikeShareApp < Sinatra::Base
 
   get '/trips/new' do
     @model = Trip
-    @stations = Trip.all
+    @stations = Station.all
     sub_erb :new
   end
 
@@ -102,6 +105,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/trips/:id/edit' do |id|
+    return not_found unless Trip.exists?(id)
     @model = Trip
     @id = id
     @record = Trip.find(id)
@@ -150,6 +154,7 @@ class BikeShareApp < Sinatra::Base
   end
 
   get '/conditions/:id/edit' do |id|
+    return not_found unless Condition.exists?(id)
     @model = Condition
     @id = id
     @record = Condition.find(id)
@@ -158,14 +163,14 @@ class BikeShareApp < Sinatra::Base
 
   post '/conditions' do
     @model = Condition
-    id = Condition.create(params[:station]).id
+    id = Condition.create(params[:condition]).id
     redirect to "/conditions/#{id}"
   end
 
   put '/conditions/:id' do |id|
     @model = Condition
     @id = id
-    Condition.update(id.to_i, params[:station])
+    Condition.update(id.to_i, params[:condition])
     redirect to "/conditions/#{id}"
   end
 
@@ -173,7 +178,13 @@ class BikeShareApp < Sinatra::Base
     @model = Condition
     @id = id
     Condition.destroy(id.to_i)
-    redirect to '/stations'
+    redirect to '/conditions'
+  end
+
+  get '/api/v1/stations/:id' do |id|
+    content_type :json
+    return '{}' unless Station.exists?(id)
+    Station.find(id).to_json
   end
 
   not_found do

@@ -1,7 +1,7 @@
 <main id="show page">
   <%= yield %>
   <a href="<%= update_form(@record.id) %>">
-    <button name="edit" value="edit"/>
+    <button name="edit" value="edit">edit</button>
   </a>
   <form action="<%= destroy(@record.id) %>" method="post">
     <input type="hidden" name="_method" value="DELETE">
