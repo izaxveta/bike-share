@@ -25,8 +25,8 @@ module TripDashboardFormatter
       subscription_type_breakout: subscription_type_breakout,
       year_month_breakout: year_month_breakout,
 
-      most_rides_weather: most_rides_weather(dates).as_json(:whatever),
-      most_rides_weather: least_rides_weather(dates).as_json(:whatever)
+      most_rides_weather: most_rides_weather(dates).as_json(),
+      least_rides_weather: least_rides_weather(dates).as_json()
     }
   end
 
@@ -74,19 +74,20 @@ module TripDashboardFormatter
     years = {}
     rides_per_month.each do |timestamp, month_count|
       y = timestamp.year
-      years[y] ||= { "January"=> 0,  "February"=> 0, "March"=> 0,
-                      "April"=> 0,   "May"=> 0,      "June"=> 0,
-                      "July"=> 0,    "August"=> 0,   "September"=> 0,
-                      "October"=> 0, "November"=> 0, "December"=> 0,
-                      "Subtotal"=> 0 }
-      m = timestamp.strftime('%B')
+      years[y] ||= { :January=> 0,  :February=> 0, :March=> 0,
+                      :April=> 0,   :May=> 0,      :June=> 0,
+                      :July=> 0,    :August=> 0,   :September=> 0,
+                      :October=> 0, :November=> 0, :December=> 0,
+                      :Subtotal=> 0 }
+      m = timestamp.strftime('%B').to_sym
       years[y][m] += month_count
-      years[y][subtotal] += month_count
+      years[y][:Subtotal] += month_count
     end
+    years
   end
 
   def rides_per_month
-    group('date_trunc("month", start_date)').count(:id)
+    group("DATE_TRUNC('month', end_date)").count
   end
 
 end
