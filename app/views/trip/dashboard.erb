@@ -5,10 +5,7 @@
 <p>Ending station with most rides: <%= @records.ending_station_with_most_rides%></p>
 <p>Top Rider: #<%= @records.top_rider%>  (No. of Rides: <%= @records.rides_per_top_rider%>)</p>
 <p>Bottom Rider: #<%= @records.bottom_rider%>  (No. of Rides: <%= @records.rides_per_bottom_rider%>)</p>
-
-<p>=======</p>
-
-<p>Subscriptions: <%= @records.subscription_count%></p>
+<p>Total Bike Subscriptions: <%= @records.subscription_count%></p>
 <ul>
     <%@records.subscription_type_breakout.each do |outer, inner|%>
     <p>Subscription Type: <%= outer %></p>
@@ -17,36 +14,29 @@
     <%end%>
   </ul>
 
-<p>=======</p>
 <p>Most Active Day: <%= @records.most_active_date%> (<%=@records.trips_by_most_active_date%> trips)</p>
-<p>Least Active Day: <%= @records.least_active_date%> (<%=@records.trips_by_least_active_date%> trip(s))</p>
+<p>Least Active Day: <%= @records.least_active_date%> (<%=@records.trips_by_least_active_date%> trip(s))</p></br>
 
-<p>TEST Single date with the highest number of trips: <%= @records.single_date_with_highest_trips %>,    No. of trips: <%= @records.single_date_with_highest_trips_count %></p>
-<p>TEST Single date with the fewest number of trips: <%= @records.single_date_with_fewest_trips %>,    No. of trips: <%=@records.single_date_with_fewest_trips_count %></p>
+<h3>Weather on single date with highest number of trips:</h3>
+<p>Max Temperature(F): <%= @records.max_temperature_on_most_popular_day %> degrees</p>
+<p>Mean Temperature(F): <%= @records.mean_temperature_on_most_popular_day %> degrees</p>
+<p>Min Temperature(F): <%= @records.min_temperature_on_most_popular_day %> degrees</p>
+<p>Mean Humidity: <%= @records.mean_humidity_on_most_popular_day %>%</p>
+<p>Mean Visibility: <%= @records.mean_visibility_on_most_popular_day %> miles</p>
+<p>Mean Wind Speed: <%= @records.mean_wind_speed_on_most_popular_day %> mph</p>
+<p>Mean Precipitation: <%= @records.inches_of_precipitation_on_most_popular_day %> inches</p>
 <br/>
-<p>TEST Weather on single date with highest number of trips:</p>
-<p>TEST Max Temperature(F): <%= @records.max_temperature_on_most_popular_day %> degrees</p>
-<p>TEST Mean Temperature(F): <%= @records.mean_temperature_on_most_popular_day %> degrees</p>
-<p>TEST Min Temperature(F): <%= @records.min_temperature_on_most_popular_day %> degrees</p>
-<p>TEST Mean Humidity: <%= @records.mean_humidity_on_most_popular_day %>%</p>
-<p>TEST Mean Visibility: <%= @records.mean_visibility_on_most_popular_day %> miles</p>
-<p>TEST Mean Wind Speed: <%= @records.mean_wind_speed_on_most_popular_day %> mph</p>
-<p>TEST Mean Precipitation: <%= @records.inches_of_precipitation_on_most_popular_day %> inches</p>
-<br/>
-<p>TEST Weather on single date with lowest number of trips:</p>
-<p>TEST Max Temperature(F): <%= @records.max_temperature_on_least_popular_day %> degrees</p>
-<p>TEST Mean Temperature(F): <%= @records.mean_temperature_on_least_popular_day %> degrees</p>
-<p>TEST Min Temperature(F): <%= @records.min_temperature_on_least_popular_day %> degrees</p>
-<p>TEST Mean Humidity: <%= @records.mean_humidity_on_least_popular_day %>%</p>
-<p>TEST Mean Visibility: <%= @records.mean_visibility_on_least_popular_day %> miles</p>
-<p>TEST Mean Wind Speed: <%= @records.mean_wind_speed_on_least_popular_day %> mph</p>
-<p>TEST Mean Precipitation: <%= @records.inches_of_precipitation_on_least_popular_day %> inches</p>
 
+<h3>Weather on single date with lowest number of trips:</h3>
+<p>Max Temperature(F): <%= @records.max_temperature_on_least_popular_day %> degrees</p>
+<p>Mean Temperature(F): <%= @records.mean_temperature_on_least_popular_day %> degrees</p>
+<p>Min Temperature(F): <%= @records.min_temperature_on_least_popular_day %> degrees</p>
+<p>Mean Humidity: <%= @records.mean_humidity_on_least_popular_day %>%</p>
+<p>Mean Visibility: <%= @records.mean_visibility_on_least_popular_day %> miles</p>
+<p>Mean Wind Speed: <%= @records.mean_wind_speed_on_least_popular_day %> mph</p>
+<p>Mean Precipitation: <%= @records.inches_of_precipitation_on_least_popular_day %> inches</p></br>
 
-
-
-<p>=======</p>
-<p>Bike ride totals per year:</p>
+<h3>Bike ride totals per year:</h3>
 <ul>
 <%@records.year_month_subtotals.each do |year, totals|%>
     <li>

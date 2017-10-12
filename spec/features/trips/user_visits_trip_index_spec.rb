@@ -6,6 +6,7 @@
 #   background { visit '/trips' }
 #
 #   it 'they experience status code 200' do
+#     save_and_open_page
 #     expect(page.status_code).to eq(200)
 #   end
 #
