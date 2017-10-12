@@ -1,7 +1,7 @@
 <h2>Station Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
-<p>Total stations: <%= @records.count %></p>
+<p>Total docks: <%= @records.count %></p>
 <p>Average bikes available per station: <%= @records.average_dock_count %></p>
 <p>Most bikes available at a station: <%= @records.maximum_dock_count %></p>
 <p>Stations with most bikes: <%= @records.with_most_bikes.names %></p>

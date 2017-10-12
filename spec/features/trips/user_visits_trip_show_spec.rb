@@ -10,53 +10,47 @@ feature 'when a user visits trip show page' do
   end
 
   context 'for a trip that exists' do
-    background { visit '/trips/11' }
+    background { visit '/trips/7046' }
 
     it 'has status code 200' do
       expect(page.status_code).to eq(200)
     end
 
     it 'they see the start station' do
-      expect(page).to have_content(/start station/i)
-      expect(page).to have_content('8')
+      expect(page).to have_content('University and Emerson')
     end
 
     it 'they see the end station' do
       skip
-      expect(page).to have_content(/end station/i)
       expect(page).to have_content('7')
     end
 
     it 'they see the start date' do
-      expect(page).to have_content(/start date/i)
-      expect(page).to have_content('2001-01-01')
+      expect(page).to have_content('2013-08-31')
     end
 
     it 'they see the end date' do
       skip
-      expect(page).to have_content(/end date/i)
       expect(page).to have_content('2001-02-01')
     end
 
     it 'they see the duration' do
-      expect(page).to have_content(/duration/i)
-      expect(page).to have_content('1')
+      expect(page).to have_content('3743')
     end
 
     it 'they see the bike id' do
-      skip
       expect(page).to have_content(/bike id/i)
-      expect(page).to have_content('404')
+      expect(page).to have_content('100')
     end
 
     it 'they see the subscription type' do
-      expect(page).to have_content(/subscription/i)
-      expect(page).to have_content('Monthly')
+      expect(page).to have_content(/subscription type/i)
+      expect(page).to have_content('Customer')
     end
 
     it 'they see the zipcode' do
       expect(page).to have_content(/zip code/i)
-      expect(page).to have_content('32210')
+      expect(page).to have_content('19803')
     end
 
     it 'they see an delete button' do
@@ -73,7 +67,7 @@ feature 'when a user visits trip show page' do
     end
 
     context 'when user clicks on delete button' do
-      background { click_button 'delete' }
+      background { click_button 'delete' } 
 
       it 'then user is redirected to trip index page' do
         has_current_path?('/trips', only_path: true)
@@ -87,5 +81,5 @@ feature 'when a user visits trip show page' do
     end
 
   end
-  
+
 end

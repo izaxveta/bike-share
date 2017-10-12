@@ -95,7 +95,7 @@ feature 'When a user visits condition edit page' do
         expect(page).to have_content(/error/i)
       end
     end
-    
+
   end
 
   context 'for a condition that does not exist' do

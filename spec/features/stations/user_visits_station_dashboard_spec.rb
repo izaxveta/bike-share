@@ -9,15 +9,15 @@ feature 'When a user visits the Station Dashboard' do
   end
 
   it 'they see the average dock count' do
-    expect(page).to have_content(/average docks/i)
+    expect(page).to have_content(/average bikes/i)
   end
 
   it 'they see the stations with fewest docks' do
-    expect(page).to have_content(/least docks/i)
+    expect(page).to have_content(/fewest bikes/i)
   end
 
   it 'they see the stations with most docks' do
-    expect(page).to have_content(/most docks/i)
+    expect(page).to have_content(/most bikes/i)
   end
 
   it 'they see the oldest station(s)' do

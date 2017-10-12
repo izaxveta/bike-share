@@ -47,8 +47,6 @@ class Trip < ActiveRecord::Base
     end_station.name
   end
 
-
-
   def self.average_duration
     average :duration
   end
