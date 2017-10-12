@@ -2,6 +2,8 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 
 require_relative '../models/station.rb'
+require_relative '../models/trip.rb'
+require_relative '../models/condition.rb'
 require_relative 'rest_url'
 
 class BikeShareApp < Sinatra::Base
@@ -158,14 +160,14 @@ class BikeShareApp < Sinatra::Base
 
   post '/conditions' do
     @model = Condition
-    id = Condition.create(params[:station]).id
+    id = Condition.create(params[:condition]).id
     redirect to "/conditions/#{id}"
   end
 
   put '/conditions/:id' do |id|
     @model = Condition
     @id = id
-    Condition.update(id.to_i, params[:station])
+    Condition.update(id.to_i, params[:condition])
     redirect to "/conditions/#{id}"
   end
 
@@ -173,7 +175,7 @@ class BikeShareApp < Sinatra::Base
     @model = Condition
     @id = id
     Condition.destroy(id.to_i)
-    redirect to '/stations'
+    redirect to '/conditions'
   end
 
   not_found do

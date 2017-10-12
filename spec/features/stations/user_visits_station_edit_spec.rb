@@ -2,16 +2,7 @@ require './spec/spec_helper'
 
 feature 'When a user visits station edit page' do
   context 'for a station that exists'
-    background do
-      Station.create! id: "99999",
-                      city: "San Jose",
-                      name: "San Jose Civic Center",
-                      dock_count: "15",
-                      lat: "37.330698",
-                      long: "-121.888979",
-                      installation_date: "8/5/2013"
-      visit '/stations/99999/edit'
-    end
+    background { '/stations//edit' }
 
     it 'has status code 200' do
       expect(page.status_code).to eq(200)
@@ -86,14 +77,13 @@ feature 'When a user visits station edit page' do
 
   context 'for a station that does not exist' do
     it 'then the user is redirected to 404 error message' do
-      visit 'stations/1/edit'
+      visit 'stations/0/edit'
       expect(page).to have_content(/not found/i)
     end
   end
 
   context 'when user clicks on delete button' do
     background{ click_button 'delete' }
-
     it 'then user is redirected to index page' do
       has_current_path?('/stations', only_path: true)
       expect(page).to have_content(/delete successful/i)
