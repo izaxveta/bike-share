@@ -11,7 +11,8 @@ module ConditionDashboardFormatter
 
   def breakout(field, step)
     by_chunk(field, step) do |chunk|
-      counts = trip_counts_descending
+      counts = chunk.trip_counts_descending
+      next if counts.size.zero?
       {
         max: counts.first,
         min: counts.last,
@@ -31,7 +32,8 @@ module ConditionDashboardFormatter
     until start_group > last
       end_group = start_group + step
       range = start_group...end_group
-      final[range] = yield where(field => range)
+      result = yield where(field => range)
+      final[range] = result unless result.nil?
       start_group = end_group
     end
     final

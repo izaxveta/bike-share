@@ -28,8 +28,7 @@ feature 'when a user visits trip show page' do
     end
 
     it 'they see the start date' do
-      expect(page).to have_content(/start date/i)
-      expect(page).to have_content('2001-01-01')
+      expect(page).to have_content('2013-08-31')
     end
 
     it 'they see the end date' do
@@ -38,23 +37,22 @@ feature 'when a user visits trip show page' do
     end
 
     it 'they see the duration' do
-      expect(page).to have_content(/duration/i)
-      expect(page).to have_content('1')
+      expect(page).to have_content('3743')
     end
 
     it 'they see the bike id' do
       expect(page).to have_content(/bike id/i)
-      expect(page).to have_content('404')
+      expect(page).to have_content('100')
     end
 
     it 'they see the subscription type' do
-      expect(page).to have_content(/subscription/i)
-      expect(page).to have_content('Monthly')
+      expect(page).to have_content(/subscription type/i)
+      expect(page).to have_content('Customer')
     end
 
     it 'they see the zipcode' do
       expect(page).to have_content(/zip code/i)
-      expect(page).to have_content('32210')
+      expect(page).to have_content('19803')
     end
 
     it 'they see an delete button' do
