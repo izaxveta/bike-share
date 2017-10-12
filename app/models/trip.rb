@@ -150,7 +150,7 @@ class Trip < ActiveRecord::Base
     Trip.group("start_date").order('start_date DESC').count.first
   end
 
-  def self.trips_by_day
+  def self.count_of_trips_by_day
     group("start_date").count
   end
 
