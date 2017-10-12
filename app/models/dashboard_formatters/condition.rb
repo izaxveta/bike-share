@@ -1,5 +1,3 @@
-require_relative 'model'
-
 module ConditionDashboardFormatter
 
   def dashboard_data
@@ -13,13 +11,21 @@ module ConditionDashboardFormatter
 
   def breakout(field, step)
     by_chunk(field, step) do |chunk|
-      counts = chunk.child_counts_descending(:trip)
+      counts = trip_counts_descending
       {
         max: counts.first,
         min: counts.last,
         avg: (counts.sum / counts.size)
       }
     end
+  end
+
+  def trip_counts_descending(child_name)
+    group(:id).joins(:trip).order("COUNT(trips.id) DESC").count.values
+  end
+
+  def order_by_trip_count
+
   end
 
   def by_chunk(field, step)
