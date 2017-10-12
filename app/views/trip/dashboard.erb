@@ -1,46 +1,35 @@
 <h2>Trip Dashboard</h2>
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
-  <p>Starting station with most rides: <%= @records.starting_station_with_most_rides%></p>
-  <p>Ending station with most rides: <%= @records.ending_station_with_most_rides%></p>
-  <p>Top Rider: #<%= @records.top_rider%>  (No. of Rides: <%= @records.rides_per_top_rider%>)</p>
-  <p>Bottom Rider: #<%= @records.bottom_rider%>  (No. of Rides: <%= @records.rides_per_bottom_rider%>)</p>
-  <p>Total Bike Subscriptions: <%= @records.subscription_count%></p>
-  <ul>
-      <%@records.subscription_type_breakout.each do |outer, inner|%>
-      <p>Subscription Type: <%= outer %></p>
-          <li>Number: <%= inner[:subtotal]%>
-          <li>Percentage: <%=inner[:percentage] %>
-      <%end%>
-    </ul>
+<h3>Stations</h3>
+<p>Starting station with most rides: <%= @data[:most_common_starting_station] %></p>
+<p>Ending station with most rides: <%= @data[:most_common_ending_station] %></p>
 
-  <p>Most Active Day: <%= @records.most_active_date%> (<%=@records.trips_by_most_active_date%> trips)</p>
-  <p>Least Active Day: <%= @records.least_active_date%> (<%=@records.trips_by_least_active_date%> trip(s))</p></br>
+<h3>Bikes</h3>
+<p>Most used (<%= @data[:most_rides_for_bike] %> rides): #<%= @data[:most_rides_bike] %></p>
+<p>Least used (<%= @data[:least_rides_for_bike] %> rides): #<%= @data[:least_rides_bike] %></p>
 
-<h3>Weather on single date with highest number of trips:</h3>
-  <p>Max Temperature(F): <%= @records.max_temperature_on_most_popular_day %> degrees</p>
-  <p>Mean Temperature(F): <%= @records.mean_temperature_on_most_popular_day %> degrees</p>
-  <p>Min Temperature(F): <%= @records.min_temperature_on_most_popular_day %> degrees</p>
-  <p>Mean Humidity: <%= @records.mean_humidity_on_most_popular_day %>%</p>
-  <p>Mean Visibility: <%= @records.mean_visibility_on_most_popular_day %> miles</p>
-  <p>Mean Wind Speed: <%= @records.mean_wind_speed_on_most_popular_day %> mph</p>
-  <p>Mean Precipitation: <%= @records.inches_of_precipitation_on_most_popular_day %> inches</p>
-  <br/>
+<h3>Dates</h3>
+<p>Most active(<%=@data[:most_rides_for_date] %> trips): <%= @data[:most_rides_date] %> </p>
+<p>Least active(<%=@data[:least_rides_for_date] %> trips): <%= @data[:least_rides_date] %> </p>
 
-<h3>Weather on single date with lowest number of trips:</h3>
-  <p>Max Temperature(F): <%= @records.max_temperature_on_least_popular_day %> degrees</p>
-  <p>Mean Temperature(F): <%= @records.mean_temperature_on_least_popular_day %> degrees</p>
-  <p>Min Temperature(F): <%= @records.min_temperature_on_least_popular_day %> degrees</p>
-  <p>Mean Humidity: <%= @records.mean_humidity_on_least_popular_day %>%</p>
-  <p>Mean Visibility: <%= @records.mean_visibility_on_least_popular_day %> miles</p>
-  <p>Mean Wind Speed: <%= @records.mean_wind_speed_on_least_popular_day %> mph</p>
-  <p>Mean Precipitation: <%= @records.inches_of_precipitation_on_least_popular_day %> inches</p></br>
-
-<h3>Bike ride totals per year:</h3>
-  <ul>
-  <%@records.year_month_subtotals.each do |year, totals|%>
+<h3>Subscriptions</h3>
+<p><%= @data[:subscription_count] %> total</p>
+<ul>
+  <%@data[:subscription_type_breakout].each do |type, data| %>
+    <li>
+      <h4>Subscription Type: <%= type %></h4>
+      <p>Number: <%= data[:subtotal] %>
+      <p>Percentage: <%=data[:percentage] %>
+    </li>
+  <%end%>
+</ul>
+<br/>
+<h3>Bike ride totals per year</h3>
+<ul>
+  <%@data[:year_month_breakout].each do |year, totals| %>
       <li>
-          <h3><%=year%></h3>
+          <h4><%=year%></h4>
           <ul>
               <% totals.each do |month, total| %>
                   <li><%=month%>: <%=total%> trips</li>
@@ -48,4 +37,23 @@
           </ul>
       </li>
   <%end%>
-  </ul>
+</ul>
+
+<h3>Weather on the date of most trips:</h3>
+<p>High Temp(F): <%= @data[:most_rides_weather]["max_temperature_f"] %> degrees</p>
+<p>Low Temp(F): <%= @data[:most_rides_weather]["min_temperature_f"] %> degrees</p>
+<p>Average Temp(F): <%= @data[:most_rides_weather]["mean_temperature_f"] %> degrees</p>
+<p>Average Humidity: <%= @data[:most_rides_weather]["mean_humidity"] %>%</p>
+<p>Average Visibility: <%= @data[:most_rides_weather]["mean_visibility_miles"] %> miles</p>
+<p>Average Wind Speed: <%= @data[:most_rides_weather]["mean_wind_speed_mph"] %> mph</p>
+<p>Precipitation: <%= @data[:most_rides_weather]["precipitation_inches"] %> inches</p>
+<br/>
+
+<h3>Weather on the date of least of trips</h3>
+<p>High Temp(F): <%= @data[:least_rides_weather]["max_temperature_f"] %> degrees</p>
+<p>Low Temp(F): <%= @data[:least_rides_weather]["min_temperature_f"] %> degrees</p>
+<p>Average Temp(F): <%= @data[:least_rides_weather]["mean_temperature_f"] %> degrees</p>
+<p>Average Humidity: <%= @data[:least_rides_weather]["mean_humidity"] %>%</p>
+<p>Average Visibility: <%= @data[:least_rides_weather]["mean_visibility_miles"] %> miles</p>
+<p>Average Wind Speed: <%= @data[:least_rides_weather]["mean_wind_speed_mph"] %> mph</p>
+<p>Precipitation: <%= @data[:least_rides_weather]["precipitation_inches"] %> inches</p>
