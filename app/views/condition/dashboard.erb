@@ -2,13 +2,22 @@
 <a href=<%= index %>>Click to See All <% @model.name %></a>
 
 <p>Per 10 degree interval...</p>
+<%= @data[:temperature_breakout] %>
 <p>Per 1/2in of Precipitation</p>
+<%= @data[:precipitation_breakout] %>
 <p>Per 4 mile increment</p>
+<%= @data[:windspeed_breakout] %>
 <p>Per Visibility of 4 miles</p>
+<%= @data[:visibility_breakout] %>
 
-<p>TEST!!!!!: <%= @record.mean_wind_speed_mph %></p>
 
 <!-- * Breakout of average number of rides, highest number of rides, and lowest number of rides on days with a high temperature in 10 degree chunks (e.g. average number of rides on days with high temps between fifty and sixty degrees)
 * Breakout of average number of rides, highest number of rides, and lowest number of rides on days with precipitation in half-inch increments.
 * Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean wind speeds in four mile increments.
 * Breakout of average number of rides, highest number of rides, and lowest number of rides on days with mean visibility in miles in four mile increments.-->
+
+<%# 
+{:temperature_breakout=>{41.0...51.0=>{:max=>1516, :min=>81, :avg=>913}, 51.0...61.0=>{:max=>1516, :min=>81, :avg=>913}, 61.0...71.0=>{:max=>1516, :min=>81, :avg=>913}, 71.0...81.0=>{:max=>1516, :min=>81, :avg=>913}}, 
+:precipitation_breakout=>{0.0...0.5=>{:max=>1516, :min=>81, :avg=>913}, 0.5...1.0=>{:max=>1516, :min=>81, :avg=>913}, 1.0...1.5=>{:max=>1516, :min=>81, :avg=>913}, 1.5...2.0=>{:max=>1516, :min=>81, :avg=>913}, 2.0...2.5=>{:max=>1516, :min=>81, :avg=>913}, 2.5...3.0=>{:max=>1516, :min=>81, :avg=>913}, 3.0...3.5=>{:max=>1516, :min=>81, :avg=>913}}, 
+:windspeed_breakout=>{0.0...4.0=>{:max=>1516, :min=>81, :avg=>913}, 4.0...8.0=>{:max=>1516, :min=>81, :avg=>913}, 8.0...12.0=>{:max=>1516, :min=>81, :avg=>913}, 12.0...16.0=>{:max=>1516, :min=>81, :avg=>913}, 16.0...20.0=>{:max=>1516, :min=>81, :avg=>913}, 20.0...24.0=>{:max=>1516, :min=>81, :avg=>913}}, 
+:visibility_breakout=>{4.0...8.0=>{:max=>1516, :min=>81, :avg=>913}, 8.0...12.0=>{:max=>1516, :min=>81, :avg=>913}}} %>
