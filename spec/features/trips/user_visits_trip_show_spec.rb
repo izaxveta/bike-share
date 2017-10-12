@@ -10,59 +10,46 @@ feature 'when a user visits trip show page' do
   end
 
   context 'for a trip that exists' do
-    background { visit '/trips/4576' }
-
-    # it 'has status code 200' do
-    #   expect(page.status_code).to eq(200)
-    # end
+    background { visit '/trips/6342' }
 
     it 'they see the start station' do
-      # require "pry"; binding.pry
-      expect(page).to have_content(/start station/i)
-      expect(page).to have_content('8')
+      expect(page).to have_content('5th at Howard')
     end
 
     it 'they see the end station' do
-      expect(page).to have_content(/end station/i)
-      expect(page).to have_content('7')
+      expect(page).to have_content('Harry Bridges Plaza (Ferry Building)')
     end
 
-    it 'they see the start date' do
-      expect(page).to have_content(/start date/i)
-      expect(page).to have_content('2001-01-01')
-    end
-
-    it 'they see the end date' do
-      expect(page).to have_content(/end date/i)
-      expect(page).to have_content('2001-02-01')
+    it 'they see the date' do
+      expect(page).to have_content('2013-08-30')
     end
 
     it 'they see the duration' do
       expect(page).to have_content(/duration/i)
-      expect(page).to have_content('1')
+      expect(page).to have_content('556 minutes')
     end
 
     it 'they see the bike id' do
       expect(page).to have_content(/bike id/i)
-      expect(page).to have_content('404')
+      expect(page).to have_content('342')
     end
 
     it 'they see the subscription type' do
       expect(page).to have_content(/subscription/i)
-      expect(page).to have_content('Monthly')
+      expect(page).to have_content('Subscriber')
     end
 
     it 'they see the zipcode' do
       expect(page).to have_content(/zip code/i)
-      expect(page).to have_content('32210')
+      expect(page).to have_content('94123')
     end
 
-    it 'they see an delete button' do
-      expect(page).to have_button(/delete/i)
+    it 'they see a delete button' do
+      expect(page).to have_button("delete")
     end
 
     it 'they see an edit button' do
-      expect(page).to have_button(/edit/i)
+      expect(page).to have_button('edit')
     end
 
     context 'when user clicks on delete button' do

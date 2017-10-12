@@ -17,7 +17,7 @@ class Trip < ActiveRecord::Base
 
 
   def display
-    "Trip ##{id} #{route}"
+    "Trip ##{id} #{route} #{timeframe}"
   end
 
   def route
@@ -45,5 +45,5 @@ class Trip < ActiveRecord::Base
   def end_station_name
     end_station.name
   end
-  
+
 end
